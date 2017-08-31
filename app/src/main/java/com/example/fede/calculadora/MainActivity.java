@@ -58,5 +58,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnDividir = (Button) super.findViewById(R.id.botonDividir);
         btnDividir.setOnClickListener(myListener);
 
+        Button btnIgual = (Button) super.findViewById(R.id.botonIgual);
+        btnIgual.setOnClickListener(myListener);
+
+        Button btnC = (Button) super.findViewById(R.id.botonC);
+        btnC.setOnClickListener(myListener);
+
+        Button btnDecimal = (Button) super.findViewById(R.id.botonDecimal);
+        btnDecimal.setOnClickListener(myListener);
+
     }
 }

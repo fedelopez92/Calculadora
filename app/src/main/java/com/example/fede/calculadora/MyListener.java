@@ -1,5 +1,8 @@
 package com.example.fede.calculadora;
 
+import android.icu.text.CompactDecimalFormat;
+import android.icu.text.DecimalFormat;
+import android.icu.text.NumberFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +14,10 @@ import android.widget.EditText;
 public class MyListener implements View.OnClickListener {
 
     public EditText editText;
-    public String operacion="0";
+    public String numero1;
+    public String numero2;
+    public String operador="";
+    public Float resultado;
 
 
     public MyListener (EditText editText){
@@ -21,70 +27,122 @@ public class MyListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-            if (v.getId() == R.id.boton1) {
-                editText.setText("1");
-                operacion.concat("1");
-            }
+        if (v.getId() == R.id.botonC) {
+            editText.setText("");
+        }
 
-            if (v.getId() == R.id.boton2) {
-                editText.setText("2");
-                operacion.concat("2");
-            }
+        if (v.getId() == R.id.boton1) {
 
-            if (v.getId() == R.id.boton3) {
-                editText.setText("3");
-                operacion.concat("3");
-            }
+            editText.setText(editText.getText().toString() + "1");
+        }
 
-            if (v.getId() == R.id.boton4) {
-                editText.setText("4");
-                operacion.concat("4");
-            }
+        if (v.getId() == R.id.boton2) {
 
-            if (v.getId() == R.id.boton5) {
-                editText.setText("5");
-                operacion.concat("5");
-            }
+            editText.setText(editText.getText().toString() + "2");
+        }
 
-            if (v.getId() == R.id.boton6) {
-                editText.setText("6");
-                operacion.concat("6");
-            }
+        if (v.getId() == R.id.boton3) {
 
-            if (v.getId() == R.id.boton7) {
-                editText.setText("7");
-                operacion.concat("7");
-            }
+            editText.setText(editText.getText().toString() + "3");
+        }
 
-            if (v.getId() == R.id.boton8) {
-                editText.setText("8");
-                operacion.concat("8");
-            }
+        if (v.getId() == R.id.boton4) {
 
-            if (v.getId() == R.id.boton9) {
-                editText.setText("9");
-                operacion.concat("9");
-            }
+            editText.setText(editText.getText().toString() + "4");
+        }
 
-            if (v.getId() == R.id.boton0) {
-                editText.setText("0");
-                operacion.concat("0");
-            }
+        if (v.getId() == R.id.boton5) {
 
-            if (v.getId() == R.id.botonSumar) {
-                operacion.concat("+");
-            }
+            editText.setText(editText.getText().toString() + "5");
+        }
 
-            if (v.getId() == R.id.botonSumar) {
-                operacion.concat("-");
-            }
+        if (v.getId() == R.id.boton6) {
 
-            if (v.getId() == R.id.botonMultiplicar) {
-                operacion.concat("*");
-            }
+            editText.setText(editText.getText().toString() + "6");
+        }
 
-            if (v.getId() == R.id.botonDividir) {
-                operacion.concat("/");
+        if (v.getId() == R.id.boton7) {
+
+            editText.setText(editText.getText().toString() + "7");
+        }
+
+        if (v.getId() == R.id.boton8) {
+
+            editText.setText(editText.getText().toString() + "8");
+        }
+
+        if (v.getId() == R.id.boton9) {
+
+            editText.setText(editText.getText().toString() + "9");
+        }
+
+        if (v.getId() == R.id.boton0) {
+
+            editText.setText(editText.getText().toString() + "0");
+        }
+
+        if (v.getId() == R.id.botonDecimal) {
+
+            editText.setText(editText.getText().toString() + ".");
+        }
+
+        if (v.getId() == R.id.botonSumar) {
+
+            if(editText.getText().toString() != "") {
+                numero1 = editText.getText().toString();
+                operador = "+";
+                editText.setText("");
             }
         }
+
+        if (v.getId() == R.id.botonRestar) {
+
+            if(editText.getText().toString() != "") {
+                numero1 = editText.getText().toString();
+                operador = "-";
+                editText.setText("");
+            }
+        }
+
+        if (v.getId() == R.id.botonMultiplicar) {
+
+            if(editText.getText().toString() != "") {
+                numero1 = editText.getText().toString();
+                operador = "*";
+                editText.setText("");
+            }
+        }
+
+        if (v.getId() == R.id.botonDividir) {
+
+            if(editText.getText().toString() != "") {
+                numero1 = editText.getText().toString();
+                operador = "/";
+                editText.setText("");
+            }
+        }
+
+        if (v.getId() == R.id.botonIgual) {
+
+            if(editText.getText().toString() != "" && operador != "") {
+
+                numero2 = editText.getText().toString();
+
+                if(operador == "+"){
+                    resultado = Float.parseFloat(numero1) + Float.parseFloat(numero2);
+                }
+                if(operador == "-"){
+                    resultado = Float.parseFloat(numero1) - Float.parseFloat(numero2);
+                }
+                if(operador == "*"){
+                    resultado = Float.parseFloat(numero1) * Float.parseFloat(numero2);
+                }
+                if(operador == "/"){
+                    resultado = Float.parseFloat(numero1) / Float.parseFloat(numero2);
+                }
+
+                editText.setText(resultado.toString());
+            }
+        }
+    }
 }
