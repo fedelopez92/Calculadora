@@ -3,6 +3,7 @@ package com.example.fede.calculadora;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,7 +12,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MyListener myListener = new MyListener();
+        EditText editText = (EditText) super.findViewById(R.id.editText);
+
+        MyListener myListener = new MyListener(editText);
 
         Button btn1 = (Button) super.findViewById(R.id.boton1);
         btn1.setOnClickListener(myListener);
@@ -42,5 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn0 = (Button) super.findViewById(R.id.boton0);
         btn0.setOnClickListener(myListener);
+
+        Button btnSumar = (Button) super.findViewById(R.id.botonSumar);
+        btnSumar.setOnClickListener(myListener);
+
+        Button btnRestar = (Button) super.findViewById(R.id.botonRestar);
+        btnRestar.setOnClickListener(myListener);
+
+        Button btnMultiplicar = (Button) super.findViewById(R.id.botonMultiplicar);
+        btnMultiplicar.setOnClickListener(myListener);
+
+        Button btnDividir = (Button) super.findViewById(R.id.botonDividir);
+        btnDividir.setOnClickListener(myListener);
+
     }
 }
