@@ -13,136 +13,116 @@ import android.widget.EditText;
 
 public class MyListener implements View.OnClickListener {
 
-    public EditText editText;
-    public String numero1;
-    public String numero2;
-    public String operador="";
-    public Float resultado;
+    public Vista vista;
+    public Controlador controlador;
+
+    public Vista getVista(){
+        return this.vista;
+    }
+
+    public void setVista(Vista vista){
+        this.vista = vista;
+    }
+
+    public Controlador getControlador(){
+        return this.controlador;
+    }
+
+    public void setControlador(Controlador controlador){
+        this.controlador = controlador;
+    }
 
 
-    public MyListener (EditText editText){
-        this.editText = editText;
+    public MyListener (Vista vista, Controlador controlador){
+        this.vista = vista;
+        this.controlador = controlador;
     }
 
     @Override
     public void onClick(View v) {
 
         if (v.getId() == R.id.botonC) {
-            editText.setText("");
+            vista.MostrarTexto("");
         }
 
         if (v.getId() == R.id.boton1) {
 
-            editText.setText(editText.getText().toString() + "1");
+            vista.MostrarTexto("1");
         }
 
         if (v.getId() == R.id.boton2) {
 
-            editText.setText(editText.getText().toString() + "2");
+            vista.MostrarTexto("2");
         }
 
         if (v.getId() == R.id.boton3) {
 
-            editText.setText(editText.getText().toString() + "3");
+            vista.MostrarTexto("3");
         }
 
         if (v.getId() == R.id.boton4) {
 
-            editText.setText(editText.getText().toString() + "4");
+            vista.MostrarTexto("4");
         }
 
         if (v.getId() == R.id.boton5) {
 
-            editText.setText(editText.getText().toString() + "5");
+            vista.MostrarTexto("5");
         }
 
         if (v.getId() == R.id.boton6) {
 
-            editText.setText(editText.getText().toString() + "6");
+            vista.MostrarTexto("6");
         }
 
         if (v.getId() == R.id.boton7) {
 
-            editText.setText(editText.getText().toString() + "7");
+            vista.MostrarTexto("7");
         }
 
         if (v.getId() == R.id.boton8) {
 
-            editText.setText(editText.getText().toString() + "8");
+            vista.MostrarTexto("8");
         }
 
         if (v.getId() == R.id.boton9) {
 
-            editText.setText(editText.getText().toString() + "9");
+            vista.MostrarTexto("9");
         }
 
         if (v.getId() == R.id.boton0) {
 
-            editText.setText(editText.getText().toString() + "0");
+            vista.MostrarTexto("0");
         }
 
         if (v.getId() == R.id.botonDecimal) {
 
-            editText.setText(editText.getText().toString() + ".");
+            vista.MostrarTexto(".");
         }
 
         if (v.getId() == R.id.botonSumar) {
 
-            if(editText.getText().toString() != "") {
-                numero1 = editText.getText().toString();
-                operador = "+";
-                editText.setText("");
-            }
+            controlador.Operacion("+");
         }
 
         if (v.getId() == R.id.botonRestar) {
 
-            if(editText.getText().toString() != "") {
-                numero1 = editText.getText().toString();
-                operador = "-";
-                editText.setText("");
-            }
+            controlador.Operacion("-");
         }
 
         if (v.getId() == R.id.botonMultiplicar) {
 
-            if(editText.getText().toString() != "") {
-                numero1 = editText.getText().toString();
-                operador = "*";
-                editText.setText("");
-            }
+            controlador.Operacion("*");
         }
 
         if (v.getId() == R.id.botonDividir) {
 
-            if(editText.getText().toString() != "") {
-                numero1 = editText.getText().toString();
-                operador = "/";
-                editText.setText("");
-            }
+            controlador.Operacion("/");
         }
 
         if (v.getId() == R.id.botonIgual) {
 
-            if(editText.getText().toString() != "" && operador != "") {
-
-                numero2 = editText.getText().toString();
-
-                if(operador == "+"){
-                    resultado = Float.parseFloat(numero1) + Float.parseFloat(numero2);
-                }
-                if(operador == "-"){
-                    resultado = Float.parseFloat(numero1) - Float.parseFloat(numero2);
-                }
-                if(operador == "*"){
-                    resultado = Float.parseFloat(numero1) * Float.parseFloat(numero2);
-                }
-                if(operador == "/"){
-                    resultado = Float.parseFloat(numero1) / Float.parseFloat(numero2);
-                }
-
-                editText.setText(resultado.toString());
-            }
+            controlador.ObtenerResultado();
         }
     }
 }
