@@ -13,10 +13,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Modelo modelo = new Modelo();
-        Vista vista = new Vista();
+        Vista vista = new Vista(this);
         Controlador controlador = new Controlador(vista, modelo);
         MyListener myListener = new MyListener(vista, controlador);
         vista.SetearListener(myListener);
+
 
     }
 }

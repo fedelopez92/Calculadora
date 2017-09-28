@@ -1,5 +1,6 @@
 package com.example.fede.calculadora;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -31,26 +32,26 @@ public class Vista extends AppCompatActivity{
     public Button btnDecimal;
 
 
-    public Vista(){
+    public Vista(Activity activity){
 
-        this.editText = (EditText) super.findViewById(R.id.editText);
-        this.btn1 = (Button) super.findViewById(R.id.boton1);
-        this.btn2 = (Button) super.findViewById(R.id.boton2);
-        this.btn3 = (Button) super.findViewById(R.id.boton3);
-        this.btn4 = (Button) super.findViewById(R.id.boton4);
-        this.btn5 = (Button) super.findViewById(R.id.boton5);
-        this.btn6 = (Button) super.findViewById(R.id.boton6);
-        this.btn7 = (Button) super.findViewById(R.id.boton7);
-        this.btn8 = (Button) super.findViewById(R.id.boton8);
-        this.btn9 = (Button) super.findViewById(R.id.boton9);
-        this.btn0 = (Button) super.findViewById(R.id.boton0);
-        this.btnSumar = (Button) super.findViewById(R.id.botonSumar);
-        this.btnRestar = (Button) super.findViewById(R.id.botonRestar);
-        this.btnMultiplicar = (Button) super.findViewById(R.id.botonMultiplicar);
-        this.btnDividir = (Button) super.findViewById(R.id.botonDividir);
-        this.btnIgual = (Button) super.findViewById(R.id.botonIgual);
-        this.btnC = (Button) super.findViewById(R.id.botonC);
-        this.btnDecimal = (Button) super.findViewById(R.id.botonDecimal);
+        this.editText = (EditText) activity.findViewById(R.id.editText);
+        this.btn1 = (Button) activity.findViewById(R.id.boton1);
+        this.btn2 = (Button) activity.findViewById(R.id.boton2);
+        this.btn3 = (Button) activity.findViewById(R.id.boton3);
+        this.btn4 = (Button) activity.findViewById(R.id.boton4);
+        this.btn5 = (Button) activity.findViewById(R.id.boton5);
+        this.btn6 = (Button) activity.findViewById(R.id.boton6);
+        this.btn7 = (Button) activity.findViewById(R.id.boton7);
+        this.btn8 = (Button) activity.findViewById(R.id.boton8);
+        this.btn9 = (Button) activity.findViewById(R.id.boton9);
+        this.btn0 = (Button) activity.findViewById(R.id.boton0);
+        this.btnSumar = (Button) activity.findViewById(R.id.botonSumar);
+        this.btnRestar = (Button) activity.findViewById(R.id.botonRestar);
+        this.btnMultiplicar = (Button) activity.findViewById(R.id.botonMultiplicar);
+        this.btnDividir = (Button) activity.findViewById(R.id.botonDividir);
+        this.btnIgual = (Button) activity.findViewById(R.id.botonIgual);
+        this.btnC = (Button) activity.findViewById(R.id.botonC);
+        this.btnDecimal = (Button) activity.findViewById(R.id.botonDecimal);
     }
 
     public void SetearListener(View.OnClickListener myListener){
